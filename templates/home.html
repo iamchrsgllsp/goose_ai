@@ -35,8 +35,7 @@
     function getResponse() {
         var entry = document.getElementById("entryvalue");
         var response = document.getElementById("response");
-        chatmsg.push(entry.value);
-        response.innerHTML = chatmsg.join("<br>");
+        
         
         fetch('/return', {
             method: 'POST',
@@ -48,6 +47,8 @@
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
+            chatmsg.push(entry.value);
+            response.innerHTML = chatmsg.join("<br>");
             entry.value = "";
         })
         .catch((error) => {
