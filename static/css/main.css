@@ -22,3 +22,15 @@ body{
 #entry:hover{
     background-color:lightgreen;
 }
+
+textarea{
+    field-sizing: content;
+    width: 75%;
+    height: 50%;
+    border: none;
+    resize: none;
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
