@@ -1,0 +1,24 @@
+body{
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.content{
+    display:grid;
+    grid-template-columns: 30% 70%;
+    height:75vh;
+}
+
+#entry{
+    background-color:greenyellow;
+    border-top-left-radius: 10%;
+    padding:25px;
+}
+#entry:hover{
+    background-color:lightgreen;
+}
