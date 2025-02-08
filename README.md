@@ -8,29 +8,6 @@ Goose AI is a simple AI wrapper designed to assist users in their day-to-day lif
 - **Data Analysis**: Analyzes data to provide insights and recommendations.
 - **Integration**: Easily integrates with other tools and services.
 
-## Installation
-
-To install Goose AI, run the following command:
-
-```bash
-pip install goose_ai
-```
-
-## Usage
-
-Here is a basic example of how to use Goose AI:
-
-```python
-import goose_ai
-
-# Initialize the AI
-ai = goose_ai.GooseAI(api_key='your_api_key')
-
-# Use the AI to perform a task
-response = ai.perform_task('What is the weather like today?')
-print(response)
-```
-
 ## Contributing
 
 We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) for more details.

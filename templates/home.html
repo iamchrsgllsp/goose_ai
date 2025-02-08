@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Our Website</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/htmx.js') }}"></script>
 </head>
 <body>
     <header>
         <h1>Welcome Goose AI</h1>
+        <div hx-get="/news" hx-trigger="every 2s"></div>
     </header>
     <main>
         <p>We are glad to have you here. Explore our content and enjoy your stay!</p>
@@ -31,14 +33,33 @@
 <script>
     chatmsg = [];
     function getResponse() {
-        console.log("getting response");
         var entry = document.getElementById("entryvalue");
         var response = document.getElementById("response");
-        console.log(entry);
         chatmsg.push(entry.value);
         response.innerHTML = chatmsg.join("<br>");
-        entry.value = "";
+        
+        fetch('/return', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: entry.value })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            entry.value = "";
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
         
     }
+    addEventListener("keydown", function(event) {
+        var entry = document.getElementById("entryvalue");
+        if (event.ctrlKey && event.key === "Enter" && entry.value !== "") {
+            getResponse();
+        }
+    });
 </script>
 </html>
